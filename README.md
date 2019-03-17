@@ -26,7 +26,6 @@ Using NPM (with node.js)
 ## Table of Contents
 
 * [About](#About)
-* [Functionality](#Functionality)
 * [CommandLine](#CommandLine)
    - [Customer View](#bamazonCustomer )
    - [Manager View](#bamazonManager)
@@ -37,17 +36,6 @@ Using NPM (with node.js)
 
 An interactive Node-based command-line (CLI) application that allows customers to buy product from the bamazon store.
 App uses the mysql database to stroe the product information including product id, name, department, price and available quantity. 
-
-
-## Functionality
-
-| Command | Output | 
-| --- | --- |
-| `node liri.js spotify-this-song <song-name>` | Lists song name, artists name, preview link, album name |
-| `node liri.js movie-this <movie-name>` | Lists movie title, year, rating, country, actors |
-| `node liri.js concert-this <band or artists -name>` | List venue name, location, date |
-| `node liri.js do-what-it-says` | Reads the above mentioned commands from random.txt |
-
 
 ## CommandLine
 
