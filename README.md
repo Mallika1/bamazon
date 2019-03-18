@@ -1,6 +1,6 @@
 ![bamazon Logo](https://github.com/Mallika1/bamazon/blob/master/Screenshots/bamazon.JPG))
 
-:store: -- **Bamazon** Amazon-like storefront with the MySQL and node.js.
+:shopping_cart: -- **Bamazon** : Amazon-like storefront with the MySQL and node.js.
 
 <Build Status Coverage Status First timers friendly>
 
