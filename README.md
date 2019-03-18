@@ -35,7 +35,14 @@ Using NPM (with node.js)
 ## About
 
 An interactive Node-based command-line (CLI) application that allows customers to buy product from the bamazon store.
-App uses the mysql database to stroe the product information including product id, name, department, price and available quantity. 
+Bamazon uses the mysql database to stroe the product information including product id, name, department, price and available quantity. App has 3 different view Customer View, Manager View and Supervisor View.
+
+Below are the tables from database: 
+
+| Products | Departments | 
+| --- | --- |
+| `node liri.js spotify-this-song <song-name>` | Lists song name, artists name, preview link, album name |
+
 
 ## CommandLine
 
