@@ -56,7 +56,7 @@ Below are the tables from database:
 | ![Product table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/productTable.jpg)| ![Dept table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/departmentTable.JPG)|
 
 
-## CommandLine
+## Functionality
 
 ### Customer View 
 
@@ -95,37 +95,6 @@ User can quit the app anytime by pressing Q.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/5.JPG)
    
-### Movie-this
+### Manager View
 
-* The ```node liri.js movie-this '<movie name here>'``` command will search the OMDb API for a movie and show the following information to your terminal/bash window and in `log.txt` file:
-    - Name of the venue
-    - Title of the movie
-    - Year the movie came out.
-    - IMDB Rating of the movie
-    - Rotten Tomatoes Rating of the movie
-    - Country where the movie was produced
-    - Language of the movie
-    - Plot of the movie
-    - Actors in the movie
-
-* If no movie name is provided to Liri, It will take 'Mr. Nobody by default.'
-
-![Liri Movie](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/movie.jpg)
-
-### Concert-this
-
-* The ```node liri.js concert-this '<artist/band name here>'``` command will search the Bands in Town Artist Events API for an artist and render the following information about each event to your terminal/bash window and in `log.txt` file :
-    - Name of the venue
-    - Venue location
-    - Date of the Event (used moment to format this as "MM/DD/YYYY")
-
-![Liri Concert](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/concert.JPG)
-
-### do-what-it-says
-
-If you provide The ```node liri.js do-what-it-says``` command Liri reads `randam.txt` file from the current directory.
-Let’s say randam.txt looks as follows:
-
-`concert-this,maroon 5`  then it will run `node liri.js concert-this maroon 5`
-
-![Liri Randam](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/dowhatitsay.jpg
+### Supervisor View
