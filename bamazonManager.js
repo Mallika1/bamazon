@@ -138,6 +138,7 @@ function updateProductInventory(prodID, newQuantity) {
 function addNewProduct() {
   var query = "SELECT * FROM products";
   connection.query(query, (err, res) => {
+    var deptList = getDeptList(res);
     console.table(res);
     inquirer.prompt([{
           name: "productId",
@@ -160,7 +161,7 @@ function addNewProduct() {
           name: "department",
           type: "list",
           message: "Which Department does this product fall into:",
-          choices: ["Sports", "Kitchen", "Electronics", "Video Games", "Home Decor", "Toys", "Clothing"]
+          choices:deptList
         },
         {
           name: "price",
@@ -183,7 +184,13 @@ function addNewProduct() {
         },
       ])
       .then(function (answer) {
+        var isItemIdExits =validateItemId(answer.item_id, res);
+        if(isItemIdExits==false){
         addNewProdInventory(answer.productId, answer.productName, answer.department, answer.price, answer.quantity);
+        }
+        else {
+          console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided already exits in the database"));
+        }
       });
   });
 };
@@ -211,3 +218,25 @@ function addNewProdInventory(productId, productName, department, price, quantity
     });
   });
 };
+
+function getDeptList(inventory){
+  var deptList = [];
+  for (let i = 0; i < inventory.length; i++) {
+     var deptName = inventory[i].department_name;
+     if(deptList.indexOf(deptName) == -1){
+     deptList.push(inventory[i].department_name);
+     }
+  }
+  return deptList;
+}
+
+//Validate customer input item id.
+function validateItemId(inputItemId, inventory) {
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].item_id == inputItemId) {
+      return true;
+    }
+  }
+  return false;
+}
+
