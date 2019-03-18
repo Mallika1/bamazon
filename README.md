@@ -41,7 +41,7 @@ Below are the tables from database:
 
 | Products | Departments | 
 | --- | --- |
-| `node liri.js spotify-this-song <song-name>` | Lists song name, artists name, preview link, album name |
+| ( https://github.com/Mallika1/bamazon/blob/master/Screenshots/productTable.jpg )| Lists song name, artists name, preview link, album name |
 
 
 ## CommandLine
