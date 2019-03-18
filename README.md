@@ -61,7 +61,7 @@ Below are the tables from database:
 ### Customer View 
 
 #### Command
-* `node bamazonCustomer` will display the product table with the items avaible for sale.
+* `node bamazonCustomer` shows the customer view of the app. It displays the product table with the items avaible for sale.
 
 ![Product](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/1.JPG)
 
@@ -96,5 +96,40 @@ User can quit the app anytime by pressing Q.
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/5.JPG)
    
 ### Manager View
+
+#### Command
+* `node bamazonManager` will display the Manager view of the app.It displays the following options for manager.
+         
+         - View Products for Sale
+         - View Low Inventory
+         - Add to Inventory
+         - Add New Product
+         
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/1.JPG) 
+
+* If manager selects `View Products for Sale` or `type 1`, the app lists every available item with the item IDs, names, prices, and quantities.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/2.JPG) 
+
+* If manager selects `View Low Inventory` or `type 2`, app lists all items with an inventory count lower than five.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/3.JPG) 
+
+* If a manager selects `Add to Inventory` or `type 3`, app displays a prompt that will let the manager "add more" of any item currently in the store.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/4.JPG) 
+
+* If a manager selects `Add New Product` or or `type 4`, app allows the manager to add a completely new product to the store.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/5.JPG) 
+
+select `View Products for Sale` or `type 1`, app displays the newly created product.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/6.JPG) 
+
+* If manager selects `Exit` then app exits closing all the processes.
+
+
+
 
 ### Supervisor View
