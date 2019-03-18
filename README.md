@@ -1,4 +1,4 @@
-![bamazon Logo](![bamazon](https://github.com/Mallika1/bamazon/blob/master/Screenshots/bamazon.JPG))
+![bamazon Logo](https://github.com/Mallika1/bamazon/blob/master/Screenshots/bamazon.JPG))
 
 :books: -- **Bamazon** Amazon-like storefront with the MySQL and node.js.
 
