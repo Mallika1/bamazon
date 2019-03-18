@@ -1,4 +1,4 @@
-![bamazon Logo](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/liri_logo.png)
+![bamazon Logo](![Product](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/bamazon.PNG))
 
 :books: -- **Bamazon** Amazon-like storefront with the MySQL and node.js.
 
