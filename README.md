@@ -1,29 +1,21 @@
-![Liri Logo](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/liri_logo.png)
+![bamazon Logo](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/liri_logo.png)
 
-:books: -- **Liri** a Language Interpretation and Recognition Interface.
+:books: -- **Bamazon** Amazon-like storefront with the MySQL and node.js.
 
 <Build Status Coverage Status First timers friendly>
 
-Whether you input your favorite song name, movie name or event name, Liri helps you find name, artist(s) name,preview link, album name, event venue and many other informations.
-
-For example, movie-name is given to **Liri** , it will show you 
-
-* Title of the Movie.
-* Year the Movie Came Out.
-* IMDB Rating of the Movie.
-* Rotten Tomatoes Rating of the Movie.
-* Country Where the Movie Was Produced.
-* Actors in the Movie.
+The app will take in orders from customers and deplete stock from the store's inventory. App also has the ability to track product sales across the store's departments and then provide a summary of the highest-grossing departments in the store.
 
 :ok_hand: Suggestions, feature requests, and issues are more than welcome!
 
-Give **Liri** a spin on the [Online demo »](https://drive.google.com/file/d/1JZzxTmOKVyYKDcAJQG8CQGxV0eFLv8vE/view).
+Give **Bamazon** a spin on the [Online demo »](https://drive.google.com/file/d/1JZzxTmOKVyYKDcAJQG8CQGxV0eFLv8vE/view).
 
 ## Why
 
-- [x] Helps to get details about your favorite songs.
-- [x] Helps to find event location details.
-- [x] Helps to find movie rating from IMDB and Rotton Tomatos.
+- [x] Helps customer to buy product from store.
+- [x] Allows store manager to add existing product to the inventory.
+- [x] Allows store manager to add new product to the inventory.
+- [x] Allows store Supervisor to add new department.
 
 ## Install
 
@@ -34,28 +26,22 @@ Using NPM (with node.js)
 ## Table of Contents
 
 * [About](#About)
-* [Functionality](#Functionality)
 * [CommandLine](#CommandLine)
-   - [spotigy-this-song](#Spotigy-this-song )
-   - [movie-this](#Movie-this)
-   - [concert-this](#Concert-this)
-   - [do-what-it-says](#do-what-it-says)
+   - [Customer View](#bamazonCustomer )
+   - [Manager View](#bamazonManager)
+   - [Supervisor View](#bamazonSupervisor)
 
 
 ## About
 
-An interactive Node-based command-line (CLI) application that takes in parameters and gives you back data.
-LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface.Liri searches Spotify for songs, Bands in Town for concerts, and OMDB for movies. LIRI take these four commands: concert-this, spotify-this-song, movie-this, and do-what-it-says.
+An interactive Node-based command-line (CLI) application that allows customers to buy product from the bamazon store.
+Bamazon uses the mysql database to stroe the product information including product id, name, department, price and available quantity. App has 3 different view Customer View, Manager View and Supervisor View.
 
+Below are the tables from database: 
 
-## Functionality
-
-| Command | Output | 
+| Products | Departments | 
 | --- | --- |
 | `node liri.js spotify-this-song <song-name>` | Lists song name, artists name, preview link, album name |
-| `node liri.js movie-this <movie-name>` | Lists movie title, year, rating, country, actors |
-| `node liri.js concert-this <band or artists -name>` | List venue name, location, date |
-| `node liri.js do-what-it-says` | Reads the above mentioned commands from random.txt |
 
 
 ## CommandLine
