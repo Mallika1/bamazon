@@ -12,22 +12,22 @@ let connection = mysql.createConnection(config);
 connection.connect((err) => {
   if (err) throw err;
   displayAvailableProducts();
-  // displaySupMenuOptions();
+
 });
 
-//Display inventory to customer
+//Display inventory to the Supervisor
 function displayAvailableProducts() {
-  var query = "SELECT item_id, product_name, price, stock_quantity, product_sales FROM products";
+  var query = "SELECT item_id, product_name, department_name, price, stock_quantity, ifNull(product_sales,0) as product_sales  FROM products";
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.log("\n");
-    // console.log(chalk.yellow.bold("\nBelow is the list of items on sale:"));
     console.table(res);
     displaySupMenuOptions();
- 
+
   });
 };
 
+//Prompt for what Supervisor can do.
 function displaySupMenuOptions() {
   inquirer.prompt({
     name: "options",
@@ -53,14 +53,18 @@ function displaySupMenuOptions() {
   });
 };
 
+//Show product sale by department.
 function showProdSalesByDept() {
-  var query = "select d.department_id, d.department_name, d.over_head_costs, p.product_sales,(p.product_sales - d.over_head_costs) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name";
+  var query = "Select d.department_name,  sum(ifNull(p.product_sales,0)) as Product_Sales,sum(ifNull(p.product_sales,0)- ifNull(d.over_head_costs,0)) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name GROUP by d.department_name";
+
   connection.query(query, (err, res) => {
+    if (err) throw err;
     console.table(res);
     displaySupMenuOptions();
   });
 };
 
+//Create a new product
 function createNewDept() {
   inquirer.prompt([{
         name: "deptID",
@@ -84,6 +88,7 @@ function createNewDept() {
     });
 };
 
+//Add a new department.
 function addNewDept(deptId, deptName, oHCost) {
   let query = "INSERT into departments SET ?";
   let input1 = {
@@ -104,6 +109,4 @@ function addNewDept(deptId, deptName, oHCost) {
       displaySupMenuOptions();
     });
   });
- 
-  // console.log(sqlQuery.sql);
 };

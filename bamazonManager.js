@@ -14,6 +14,7 @@ connection.connect((err) => {
   displayManagerMenuOptions();
 });
 
+//Prompt Manager for what he/she wants to do.
 function displayManagerMenuOptions() {
   inquirer.prompt({
     name: "options",
@@ -46,6 +47,7 @@ function displayManagerMenuOptions() {
   });
 };
 
+//Display the list of available products from inventory.
 function viewProductForSale() {
   var query = "SELECT * FROM products";
   connection.query(query, (err, res) => {
@@ -54,15 +56,16 @@ function viewProductForSale() {
   });
 };
 
+//Display the list of the products have stock quantity less than 5.
 function ViewLowInventory() {
-  var query = "SELECT * from products WHERE stock_quantity <100";
+  var query = "SELECT * from products WHERE stock_quantity <5";
   connection.query(query, (err, res) => {
     console.table(res);
     displayManagerMenuOptions();
   });
 };
 
-//add inventory for existing products
+//Add inventory for existing products.
 function addToInventory() {
   // viewProductForSale();
   var query = "SELECT * FROM products";
@@ -99,6 +102,7 @@ function addToInventory() {
   });
 };
 
+//Updat the product inventory with the Manager's input quantity. 
 function updateProductInventory(prodID, newQuantity) {
   var query = "SELECT stock_quantity FROM products where ?";
   let product = {
@@ -130,59 +134,61 @@ function updateProductInventory(prodID, newQuantity) {
   });
 };
 
+//Display the prompt for adding a new product.
 function addNewProduct() {
   var query = "SELECT * FROM products";
   connection.query(query, (err, res) => {
     console.table(res);
-  inquirer.prompt([{
-        name: "productId",
-        type: "input",
-        message: "Enter the new product ID you want to add to the inventory:",
-        validate: function (value) {
-          if (value !== "" && isNaN(value) == false && value > 0) {
-            return true;
-          } else {
-            return chalk.bgRed("**ERROR** Invalid ID, enter a valid ID from the table");
+    inquirer.prompt([{
+          name: "productId",
+          type: "input",
+          message: "Enter the new product ID you want to add to the inventory:",
+          validate: function (value) {
+            if (value !== "" && isNaN(value) == false && value > 0) {
+              return true;
+            } else {
+              return chalk.bgRed("**ERROR** Invalid ID, enter a valid ID from the table");
+            }
           }
-        }
-      },
-      {
-        name: "productName",
-        type: "input",
-        message: "Enter the new product name you want to add to the inventory:"
-      },
-      {
-        name: "department",
-        type: "list",
-        message: "Which Department does this product fall into:",
-        choices: ["Sports", "Kitchen","Electronics","Video Games","Home Decor", "Toys", "Clothing"]
-      },
-      {
-        name: "price",
-        type: "input",
-        message: "Enter the price of the new product:"
+        },
+        {
+          name: "productName",
+          type: "input",
+          message: "Enter the new product name you want to add to the inventory:"
+        },
+        {
+          name: "department",
+          type: "list",
+          message: "Which Department does this product fall into:",
+          choices: ["Sports", "Kitchen", "Electronics", "Video Games", "Home Decor", "Toys", "Clothing"]
+        },
+        {
+          name: "price",
+          type: "input",
+          message: "Enter the price of the new product:"
 
-      },
-      {
-        name: "quantity",
-        type: "input",
-        message: "Enter the quantity of the product:",
-        validate: function (value) {
-          if (value !== "" && isNaN(value) == false && value > 0) {
-            return true;
-          } else {
-            return chalk.bgRed("**ERROR** Enter a number greater than");
+        },
+        {
+          name: "quantity",
+          type: "input",
+          message: "Enter the quantity of the product:",
+          validate: function (value) {
+            if (value !== "" && isNaN(value) == false && value > 0) {
+              return true;
+            } else {
+              return chalk.bgRed("**ERROR** Enter a number greater than");
+            }
           }
-        }
 
-      },
-    ])
-    .then(function (answer) {
-      addNewProdInventory(answer.productId, answer.productName, answer.department, answer.price, answer.quantity);
-    });
+        },
+      ])
+      .then(function (answer) {
+        addNewProdInventory(answer.productId, answer.productName, answer.department, answer.price, answer.quantity);
+      });
   });
 };
 
+//Add the new product to the inventory.
 function addNewProdInventory(productId, productName, department, price, quantity) {
   let query = "INSERT into products SET ?";
   let input1 = {

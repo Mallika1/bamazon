@@ -13,7 +13,7 @@ create table products
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES 
-    ('Toddler Helmet', 'Sports', '16.65', '150'),
+    ('Toddler Helmet', 'Sports', '16.65', '5'),
     ("Pullover Sweater", "Clothing", '27.99', '121'),
     ('Laptop', 'Electronics', '370.99', '436'),
     ('Rescue Helicopter', 'Toys', '33.99', '39'),
@@ -44,7 +44,11 @@ VALUES
 ("02", "Clothing", '3000'),
 ('03', 'Kitchen', '5000'),
 ('04', 'Toys', '9000'),
-('05', 'Video Games', '4000')
+('05', 'Video Games', '4000'),
+('06', 'Electronics', '5000'),
+('07', 'Home & Decor', '5000')
 ;
 
 select * from departments;
+
+-- Select d.department_name,  sum(ifNull(p.product_sales,0)) as Product_Sales,sum(ifNull(p.product_sales,0)- ifNull(d.over_head_costs,0)) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name GROUP by d.department_name"
