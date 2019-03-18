@@ -28,6 +28,7 @@ Using NPM (with node.js)
 * [About](#About)
 * [CommandLine](#CommandLine)
    - [Customer View](#bamazonCustomer )
+       -[Command](#command)
    - [Manager View](#bamazonManager)
    - [Supervisor View](#bamazonSupervisor)
 
