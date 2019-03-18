@@ -48,33 +48,40 @@ Below are the tables from database:
 
 ### Customer View 
 
-* Running `node bamazonCustomer` will display the product table with the items avaible for sale.
+#### Command
+* `node bamazonCustomer` will display the product table with the items avaible for sale.
 
 ![Product](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/1.JPG)
 
 
 * Then, the app will prompt users with two messages:
 
-    ask them the ID of the product they would like to buy.
-    ask how many units of the product they would like to buy.
+    - ask them the ID of the product they would like to buy.
+    - ask how many units of the product they would like to buy.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2.JPG)
 
 * If correct ID annd quantity provided app will place an order for the item.and displays the summery of the order.
 
-Validation: 
+#### Validation: 
 When customer wants to buy an item, the app will check if the store has enough of the product to meet the customer's request.
-If customer provided an item_id which does not exist in the inventory , it will show an error. 
+
+* If customer provided an item_id which does not exist in the inventory , it will show an error. 
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/3.JPG)
 
-If the store does not have enough of quantity the product,it will show another error message.
+* If the store does not have enough of quantity the product,it will show another error message.
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/4.JPG)
 
-Result
+#### Result
 If customer places an order successfully, app update the database to reflect the remaining quantity of the product. Also product_sales column will be updated to show the total sales. Customer will be provided with the details of his order.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2_1.JPG)
+
+#### Quit
+User can quit the app anytime by pressing Q.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/5.JPG)
    
 ### Movie-this
 
