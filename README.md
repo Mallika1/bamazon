@@ -1,4 +1,4 @@
-![bamazon Logo](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/liri_logo.png)
+![bamazon Logo](![Product](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/bamazon.PNG))
 
 :books: -- **Bamazon** Amazon-like storefront with the MySQL and node.js.
 
@@ -41,27 +41,48 @@ Below are the tables from database:
 
 | Products | Departments | 
 | --- | --- |
-| `node liri.js spotify-this-song <song-name>` | Lists song name, artists name, preview link, album name |
+| ![Product table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/productTable.jpg)| ![Dept table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/departmentTable.JPG)|
 
 
 ## CommandLine
 
-When no input argument or --help is given to Liri, it displays the help information.
-![Liri Help](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/cmdhelp.JPG)
+### Customer View 
+
+#### Command
+* `node bamazonCustomer` will display the product table with the items avaible for sale.
+
+![Product](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/1.JPG)
 
 
-### Spotigy-this-song 
+* Then, the app will prompt users with two messages:
 
-* The ```node liri.js spotify-this-song '<song name here>'``` command will output the following information about the song in your  console and in `log.txt` file:
-     - Artist(s)
-     - The song's name
-     - A preview link of the song from Spotify
-     - The album that the song is from
+    - ask them the ID of the product they would like to buy.
+    - ask how many units of the product they would like to buy.
 
-* If no song name is provided to Liri, It will take "The Sign" by Ace of Base by default.
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2.JPG)
 
-![Liri Spotify](https://github.com/Mallika1/liri-node-app/blob/master/screenshots/concert.JPG)
+* If correct ID annd quantity provided app will place an order for the item.and displays the summery of the order.
 
+#### Validation: 
+When customer wants to buy an item, the app will check if the store has enough of the product to meet the customer's request.
+
+* If customer provided an item_id which does not exist in the inventory , it will show an error. 
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/3.JPG)
+
+* If the store does not have enough of quantity the product,it will show another error message.
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/4.JPG)
+
+#### Result
+If customer places an order successfully, app update the database to reflect the remaining quantity of the product. Also product_sales column will be updated to show the total sales. Customer will be provided with the details of his order.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2_1.JPG)
+
+#### Quit
+User can quit the app anytime by pressing Q.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/5.JPG)
+   
 ### Movie-this
 
 * The ```node liri.js movie-this '<movie name here>'``` command will search the OMDb API for a movie and show the following information to your terminal/bash window and in `log.txt` file:
