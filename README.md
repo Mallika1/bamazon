@@ -41,7 +41,7 @@ Below are the tables from database:
 
 | Products | Departments | 
 | --- | --- |
-| ![Liri Help](https://github.com/Mallika1/bamazon/blob/master/Screenshots/productTable.jpg)| Lists song name, artists name, preview link, album name |
+| ![Product table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/productTable.jpg)| ![Dept table](https://github.com/Mallika1/bamazon/blob/master/Screenshots/departmentTable.JPG)|
 
 
 ## CommandLine
