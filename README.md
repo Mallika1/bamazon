@@ -33,7 +33,15 @@ Using NPM (with node.js)
        - [Validation](#Validation)
        - [Quit](#Quit)
    - [Manager View](#bamazonManager)
+       - [Command](#Command)
+       - [Result](#Result)
+       - [Validation](#Validation)
+       - [Quit](#Quit) 
    - [Supervisor View](#bamazonSupervisor)
+       - [Command](#Command)
+       - [Result](#Result)
+       - [Validation](#Validation)
+       - [Quit](#Quit)
 
 
 ## About
