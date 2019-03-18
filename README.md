@@ -26,7 +26,7 @@ Using NPM (with node.js)
 ## Table of Contents
 
 * [About](#About)
-* [CommandLine](#CommandLine)
+* [Functionality](#Functionality)
    - [Customer View](#bamazonCustomer )
        - [Command](#Command)
        - [Result](#Result)
