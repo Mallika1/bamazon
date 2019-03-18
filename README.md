@@ -74,7 +74,7 @@ If the store does not have enough of quantity the product,it will show another e
 Result
 If customer places an order successfully, app update the database to reflect the remaining quantity of the product. Also product_sales column will be updated to show the total sales. Customer will be provided with the details of his order.
 
-![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2.JPG)
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2_1.JPG)
    
 ### Movie-this
 
