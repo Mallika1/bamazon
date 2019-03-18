@@ -63,6 +63,11 @@ Below are the tables from database:
 
 * If correct ID annd quantity provided app will place an order for the item.and displays the summery of the order.
 
+#### Result
+If customer places an order successfully, app update the database to reflect the remaining quantity of the product. Also product_sales column will be updated to show the total sales. Customer will be provided with the details of his order.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2_1.JPG)
+
 #### Validation: 
 When customer wants to buy an item, the app will check if the store has enough of the product to meet the customer's request.
 
@@ -72,11 +77,6 @@ When customer wants to buy an item, the app will check if the store has enough o
 
 * If the store does not have enough of quantity the product,it will show another error message.
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/4.JPG)
-
-#### Result
-If customer places an order successfully, app update the database to reflect the remaining quantity of the product. Also product_sales column will be updated to show the total sales. Customer will be provided with the details of his order.
-
-![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/2_1.JPG)
 
 #### Quit
 User can quit the app anytime by pressing Q.
