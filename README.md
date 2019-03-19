@@ -83,7 +83,8 @@ If customer places an order successfully, app update the database to reflect the
 #### Validation: 
 When customer wants to buy an item, the app will check if the store has enough of the product to meet the customer's request.
 
-* If customer provided an item_id which does not exist in the inventory , it will show an error. 
+* If customer provides an item_id which does not exist in the inventory , app shows error message. 
+  Also Thorws error if ID is null or 0 or not a number.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/customerview/3.JPG)
 
@@ -115,6 +116,8 @@ User can quit the app anytime by pressing Q.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/3.JPG) 
 
+#### Result
+
 * If a manager selects `Add to Inventory` or `type 3`, app displays a prompt that will let the manager "add more" of any item currently in the store.
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/4.JPG) 
@@ -127,9 +130,45 @@ select `View Products for Sale` or `type 1`, app displays the newly created prod
 
 ![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/6.JPG) 
 
+#### Validation
+* `Add to Inventory` validates the input item ID . Thorws error if ID is null or 0 or a non existing id or not a number.
+* `Add New Product` validates the input item ID . Thorws error if ID is null or 0 or an an existing id or not a number.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/Manager/7.JPG) 
+
+#### Quit
+
 * If manager selects `Exit` then app exits closing all the processes.
 
-
-
-
 ### Supervisor View
+
+#### Command
+* `node bamazonSupervisor` will display the Supervisor view of the app.It displays the following options for supervisor.
+
+         - View Product Sales by Department
+         - Create New Department
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/supervisor/1.JPG) 
+
+* Supervisor selects `View Product Sales by Department` or `type 1`, app displays a summarized table using product table and departments table. 
+
+* `total_profit` column is calculated on the fly using the difference between `over_head_costs` and `product_sales`.     `total_profit` is not stored in any database.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/supervisor/2.JPG) 
+
+#### Result
+* Supervisor selects `Create New Department` or `type 2`, app allows the manager to add a completely new department to the store.
+
+* Now Manager can add new products to the newly created department.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/supervisor/3.JPG) 
+
+select `View Product Sales by Department`, now it displays the newly added department.
+
+![Prompt](https://github.com/Mallika1/bamazon/blob/master/Screenshots/supervisor/4.JPG) 
+
+#### Validation
+ * `Create New Department` validates the input department ID . Thorws error if ID is null or 0 or an an existing id or not a number.
+
+#### Quit
+Press 3 to quit.
