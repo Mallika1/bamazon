@@ -97,7 +97,14 @@ function addToInventory() {
         }
       ])
       .then(function (answer) {
-        updateProductInventory(answer.productId, answer.quantity);
+        var isItemIdExits =validateItemId(answer.productId, res);
+        if(isItemIdExits==true){
+          updateProductInventory(answer.productId, answer.quantity);
+        }
+        else {
+          console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided does not exits in the database"));
+        }
+       
       });
   });
 };

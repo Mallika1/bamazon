@@ -121,7 +121,7 @@ function placeOrder(product, uiQuantity) {
 function updateDB_Quantity(dbStockQuantity, uiQuantity, prodID, price, prodSales) {
  
   let newQuantity = dbStockQuantity - uiQuantity;
-  prodSales = price * uiQuantity;
+  prodSales =prodSales+ price * uiQuantity;
   
   let query = "UPDATE products SET ? WHERE ?";
   let input1 = {
