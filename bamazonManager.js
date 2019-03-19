@@ -97,14 +97,13 @@ function addToInventory() {
         }
       ])
       .then(function (answer) {
-        var isItemIdExits =validateItemId(answer.productId, res);
-        if(isItemIdExits==true){
+        var isItemIdExits = validateItemId(answer.productId, res);
+        if (isItemIdExits == true) {
           updateProductInventory(answer.productId, answer.quantity);
-        }
-        else {
+        } else {
           console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided does not exits in the database"));
         }
-       
+
       });
   });
 };
@@ -168,7 +167,7 @@ function addNewProduct() {
           name: "department",
           type: "list",
           message: "Which Department does this product fall into:",
-          choices:deptList
+          choices: deptList
         },
         {
           name: "price",
@@ -191,11 +190,10 @@ function addNewProduct() {
         },
       ])
       .then(function (answer) {
-        var isItemIdExits =validateItemId(answer.item_id, res);
-        if(isItemIdExits==false){
-        addNewProdInventory(answer.productId, answer.productName, answer.department, answer.price, answer.quantity);
-        }
-        else {
+        var isItemIdExits = validateItemId(answer.item_id, res);
+        if (isItemIdExits == false) {
+          addNewProdInventory(answer.productId, answer.productName, answer.department, answer.price, answer.quantity);
+        } else {
           console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided already exits in the database"));
         }
       });
@@ -226,13 +224,13 @@ function addNewProdInventory(productId, productName, department, price, quantity
   });
 };
 
-function getDeptList(inventory){
+function getDeptList(inventory) {
   var deptList = [];
   for (let i = 0; i < inventory.length; i++) {
-     var deptName = inventory[i].department_name;
-     if(deptList.indexOf(deptName) == -1){
-     deptList.push(inventory[i].department_name);
-     }
+    var deptName = inventory[i].department_name;
+    if (deptList.indexOf(deptName) == -1) {
+      deptList.push(inventory[i].department_name);
+    }
   }
   return deptList;
 }
@@ -246,4 +244,3 @@ function validateItemId(inputItemId, inventory) {
   }
   return false;
 }
-

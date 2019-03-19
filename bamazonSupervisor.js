@@ -13,7 +13,7 @@ connection.connect((err) => {
   if (err) throw err;
   // displayAvailableProducts();
   displaySupMenuOptions();
- 
+
 });
 
 //Display inventory to the Supervisor
@@ -23,8 +23,6 @@ function displayAvailableProducts() {
     if (err) throw err;
     console.log("\n");
     console.table(res);
-    // displaySupMenuOptions();
- 
   });
 };
 
@@ -58,7 +56,7 @@ function displaySupMenuOptions() {
 function showProdSalesByDept() {
   displayAvailableProducts();
   var query = "Select d.department_id, d.department_name, d.over_head_costs, sum(ifNull(p.product_sales,0)) as Product_Sales,sum(ifNull(p.product_sales,0)- ifNull(d.over_head_costs,0)) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name GROUP by d.department_name";
-  
+
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
@@ -72,38 +70,38 @@ function createNewDept() {
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
- 
-  inquirer.prompt([{
-        name: "deptID",
-        type: "input",
-        message: "Enter the new department ID:",
-        validate: function (value) {
-          if (value !== "" && isNaN(value) == false && value > 0) {
-            return true;
-          } else {
-            return chalk.bgRed("**ERROR** Invalid Department ID, enter a new  department ID");
+
+    inquirer.prompt([{
+          name: "deptID",
+          type: "input",
+          message: "Enter the new department ID:",
+          validate: function (value) {
+            if (value !== "" && isNaN(value) == false && value > 0) {
+              return true;
+            } else {
+              return chalk.bgRed("**ERROR** Invalid Department ID, enter a new  department ID");
+            }
           }
+        },
+        {
+          name: "deptName",
+          type: "input",
+          message: "Enter the new department name:"
+        },
+        {
+          name: "overHeadCost",
+          type: "input",
+          message: "Enter the over head cost:"
+        },
+      ])
+      .then(function (answer) {
+        var isDeptExits = validateDeptId(answer.deptID, res)
+        if (isDeptExits == false) {
+          addNewDept(answer.deptID, answer.deptName, answer.overHeadCost);
+        } else {
+          console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided already exits in the database"));
         }
-      },
-      {
-        name: "deptName",
-        type: "input",
-        message: "Enter the new department name:"
-      },
-      {
-        name: "overHeadCost",
-        type: "input",
-        message: "Enter the over head cost:"
-      },
-    ])
-    .then(function (answer) {
-      var isDeptExits = validateDeptId(answer.deptID, res)
-      if(isDeptExits == false){
-      addNewDept(answer.deptID, answer.deptName, answer.overHeadCost);
-      }else{
-        console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided already exits in the database"));
-      }
-    });
+      });
   });
 };
 

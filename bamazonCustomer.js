@@ -87,7 +87,6 @@ function promptForQuantity(product) {
       else {
         placeOrder(product, quantity);
       }
-
     });
 };
 
@@ -96,7 +95,7 @@ function placeOrder(product, uiQuantity) {
   console.log(chalk.cyan.bold("\n********************************************************************"));
   console.log(chalk.magenta.bold("Your order has been processed successfully.Thank you for Shopping!" + "\n"));
   console.log(chalk.red.underline.blue("Your Order Details:" + "\n"));
- 
+
   var table = new Table({
     head: ['ITEM ID', 'PRODUCT NAME', 'QUANTITY', 'PRICE', 'TOTAL PRICE'],
     style: {
@@ -119,10 +118,10 @@ function placeOrder(product, uiQuantity) {
 
 //Update the database after customer purchased the product.
 function updateDB_Quantity(dbStockQuantity, uiQuantity, prodID, price, prodSales) {
- 
+
   let newQuantity = dbStockQuantity - uiQuantity;
-  prodSales =prodSales+ price * uiQuantity;
-  
+  prodSales = prodSales + price * uiQuantity;
+
   let query = "UPDATE products SET ? WHERE ?";
   let input1 = {
     stock_quantity: newQuantity,
@@ -142,7 +141,6 @@ function exit(isExit) {
   if (isExit === "q") {
     console.log("\n\tThank you for visiting!");
     console.log("\n\t\tCome back soon!");
-
     process.exit(0);
   }
 }
