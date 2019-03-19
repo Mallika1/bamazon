@@ -76,7 +76,7 @@ function addToInventory() {
           type: "input",
           message: "Enter the product ID you want to add more to inventory:",
           validate: function (value) {
-            if (value !== "" && isNaN(value) == false && value > 0 && value < 11) {
+            if (value !== "" && isNaN(value) == false && value > 0) {
               return true;
             } else {
               return chalk.bgRed("**ERROR** Invalid ID, enter a valid ID from the table");

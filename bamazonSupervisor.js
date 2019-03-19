@@ -11,8 +11,9 @@ let connection = mysql.createConnection(config);
 
 connection.connect((err) => {
   if (err) throw err;
-  displayAvailableProducts();
-
+  // displayAvailableProducts();
+  displaySupMenuOptions();
+ 
 });
 
 //Display inventory to the Supervisor
@@ -22,8 +23,8 @@ function displayAvailableProducts() {
     if (err) throw err;
     console.log("\n");
     console.table(res);
-    displaySupMenuOptions();
-
+    // displaySupMenuOptions();
+ 
   });
 };
 
@@ -55,8 +56,9 @@ function displaySupMenuOptions() {
 
 //Show product sale by department.
 function showProdSalesByDept() {
-  var query = "Select d.department_name,  sum(ifNull(p.product_sales,0)) as Product_Sales,sum(ifNull(p.product_sales,0)- ifNull(d.over_head_costs,0)) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name GROUP by d.department_name";
-
+  displayAvailableProducts();
+  var query = "Select d.department_id, d.department_name, d.over_head_costs, sum(ifNull(p.product_sales,0)) as Product_Sales,sum(ifNull(p.product_sales,0)- ifNull(d.over_head_costs,0)) AS total_profit from departments d LEFT JOIN products p ON d.department_name = p.department_name GROUP by d.department_name";
+  
   connection.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
@@ -66,10 +68,22 @@ function showProdSalesByDept() {
 
 //Create a new product
 function createNewDept() {
+  var query = "SELECT * from departments";
+  connection.query(query, (err, res) => {
+    if (err) throw err;
+    console.table(res);
+ 
   inquirer.prompt([{
         name: "deptID",
         type: "input",
-        message: "Enter the new department ID:"
+        message: "Enter the new department ID:",
+        validate: function (value) {
+          if (value !== "" && isNaN(value) == false && value > 0) {
+            return true;
+          } else {
+            return chalk.bgRed("**ERROR** Invalid Department ID, enter a new  department ID");
+          }
+        }
       },
       {
         name: "deptName",
@@ -83,9 +97,14 @@ function createNewDept() {
       },
     ])
     .then(function (answer) {
-      console.log(answer.deptName, answer.overHeadCost);
+      var isDeptExits = validateDeptId(answer.deptID, res)
+      if(isDeptExits == false){
       addNewDept(answer.deptID, answer.deptName, answer.overHeadCost);
+      }else{
+        console.log(chalk.bgRed("**ERROR** Invalid ID, ID you provided already exits in the database"));
+      }
     });
+  });
 };
 
 //Add a new department.
@@ -109,4 +128,13 @@ function addNewDept(deptId, deptName, oHCost) {
       displaySupMenuOptions();
     });
   });
+};
+
+function validateDeptId(inputDeptID, departments) {
+  for (let i = 0; i < departments.length; i++) {
+    if (departments[i].department_id == inputDeptID) {
+      return true;
+    }
+  }
+  return false;
 };
