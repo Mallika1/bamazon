@@ -8,7 +8,10 @@ The app will take in orders from customers and deplete stock from the store's in
 
 :ok_hand: Suggestions, feature requests, and issues are more than welcome!
 
-Give **Bamazon** a spin on the [Online demo »](https://drive.google.com/file/d/1JZzxTmOKVyYKDcAJQG8CQGxV0eFLv8vE/view).
+Give **Bamazon** a spin on the 
+[Online demo »](https://drive.google.com/file/d/1Hh2IYZEOZbXwnyP4lMjFNzBGMIc74j1-/view?usp=sharing).
+[Online demo »](https://drive.google.com/file/d/1TQJsw83P0uu-Vp8DmeuO5a68_Nen-d0O/view?usp=sharing).
+[Online demo »](https://drive.google.com/file/d/1IM60_ezo0XtAiGCjaQLXJcft0wvMHJlB/view).
 
 ## Why
 
